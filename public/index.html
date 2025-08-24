@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Mobile-first invoice generator for small businesses" />
+    <!-- Prevent MetaMask auto-injection -->
+    <meta name="ethereum-provider" content="none" />
+    <meta name="web3-provider" content="none" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Invoice Generator</title>
@@ -14,6 +17,23 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script>
+      // Disable MetaMask automatic connection attempts
+      if (typeof window.ethereum !== 'undefined') {
+        // Prevent MetaMask from automatically connecting
+        window.ethereum.autoRefreshOnNetworkChange = false;
+        
+        // Override the request method to ignore connection requests
+        const originalRequest = window.ethereum.request;
+        window.ethereum.request = function(args) {
+          if (args.method === 'eth_requestAccounts' || args.method === 'wallet_requestPermissions') {
+            console.log('MetaMask connection request blocked for Invoice Generator app');
+            return Promise.reject(new Error('MetaMask not needed for this app'));
+          }
+          return originalRequest.call(this, args);
+        };
+      }
+
+      // Service Worker registration
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')

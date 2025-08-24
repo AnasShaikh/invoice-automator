@@ -1,0 +1,144 @@
+.credit-manager {
+  margin: 20px 0;
+}
+
+.credit-display {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.credit-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.credit-count {
+  text-align: center;
+}
+
+.credit-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2196F3;
+  display: block;
+}
+
+.credit-label {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.user-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.user-badge.free {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.user-badge.credit {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.user-badge.subscriber {
+  background: #e8f5e8;
+  color: #4caf50;
+}
+
+.credit-actions {
+  text-align: center;
+}
+
+.buy-credits-btn {
+  background: linear-gradient(135deg, #2196F3, #21cbf3);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 250px;
+}
+
+.buy-credits-btn.urgent {
+  background: linear-gradient(135deg, #f44336, #ff7961);
+  animation: pulse 2s infinite;
+}
+
+.buy-credits-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
+}
+
+.buy-credits-btn.urgent:hover {
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.3);
+}
+
+.buy-credits-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pricing-info {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 8px;
+}
+
+.free-trial-notice {
+  background: linear-gradient(135deg, #4caf50, #8bc34a);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.free-trial-notice p {
+  margin: 0;
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(244, 67, 54, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .credit-info {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .credit-number {
+    font-size: 2rem;
+  }
+}

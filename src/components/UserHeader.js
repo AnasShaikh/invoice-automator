@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import InvoiceHistory from './InvoiceHistory';
 import BusinessProfile from './BusinessProfile';
+import BillingPage from './BillingPage';
+import './BillingPage.css';
 
 const UserHeader = () => {
   const { user, logout } = useAuth();
   const [showHistory, setShowHistory] = useState(false);
   const [showBusinessProfile, setShowBusinessProfile] = useState(false);
+  const [showBilling, setShowBilling] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   useEffect(() => {
     const checkScreenSize = () => {

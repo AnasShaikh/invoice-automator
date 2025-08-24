@@ -1,0 +1,250 @@
+/* Billing Page Styles */
+.billing-page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.billing-page-modal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.billing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2.5rem 1rem 2.5rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.billing-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #718096;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-btn:hover {
+  background: rgba(113, 128, 150, 0.1);
+  color: #2d3748;
+  transform: scale(1.1);
+}
+
+.billing-content {
+  padding: 2rem 2.5rem;
+}
+
+.billing-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.account-info h3,
+.credits-overview h3 {
+  margin: 0 0 1rem 0;
+  color: #2d3748;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+  font-size: 0.95rem;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row span:first-child {
+  color: #718096;
+  font-weight: 500;
+}
+
+.info-row span:last-child {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.credits-stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.credit-stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 15px;
+  border: 2px solid rgba(102, 126, 234, 0.1);
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.billing-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+  margin: 2rem 0;
+}
+
+.credit-management h3,
+.billing-help h3 {
+  margin: 0 0 1rem 0;
+  color: #2d3748;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.credit-management p,
+.billing-help p {
+  margin: 0 0 1.5rem 0;
+  color: #718096;
+  line-height: 1.6;
+}
+
+.support-btn {
+  background: linear-gradient(135deg, #48bb78 0%, #38b2ac 100%);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 25px rgba(72, 187, 120, 0.2);
+}
+
+.support-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(72, 187, 120, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .billing-page-overlay {
+    padding: 0.5rem;
+  }
+  
+  .billing-page-modal {
+    border-radius: 15px;
+    max-height: 95vh;
+  }
+  
+  .billing-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+  
+  .billing-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .billing-content {
+    padding: 1.5rem;
+  }
+  
+  .billing-summary {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .credits-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .credit-stat {
+    padding: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .billing-header {
+    padding: 1rem;
+  }
+  
+  .billing-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .billing-content {
+    padding: 1rem;
+  }
+  
+  .close-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+  }
+}
